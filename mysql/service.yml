@@ -1,0 +1,33 @@
+---
+services:
+
+  web:
+    git: git@github.com:babakgh/rails-mysql.git
+    git_branch: master
+    command: bundle exec rails s _env:RAILS_ENV
+    ports: 
+      - 3000:80:443
+    env_vars:
+      RAILS_ENV: production
+      RACK_ENV: production
+
+  worker:
+    git: git@github.com:babakgh/rails-mysql.git
+    git_branch: master
+    command: bundle exec rake test:work
+    
+    env_vars:
+      RAILS_ENV: production
+      RACK_ENV: production
+
+  scheduler:
+    git: git@github.com:babakgh/rails-mysql.git
+    git_branch: master
+    command: bundle exec rake test:work
+    
+    env_vars:
+      RAILS_ENV: production
+      RACK_ENV: production
+
+databases:
+  - mysql

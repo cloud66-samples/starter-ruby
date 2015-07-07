@@ -1,0 +1,22 @@
+development:
+    rails: 
+        server: 
+            extra_packages: 
+                - atop
+                - chrony
+                
+staging:
+    rails: 
+        server: 
+            extra_packages: 
+                - atop
+                - chrony
+                
+production:
+    rails: 
+        server: 
+            extra_packages: 
+                - atop
+                - chrony                
+        configuration:
+            ruby_version: 2.1.5

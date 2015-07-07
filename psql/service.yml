@@ -1,0 +1,15 @@
+---
+services:
+
+  web:
+    git: git@github.com:babakgh/rails-psql.git
+    git_branch: docker
+    command: bundle exec rails s _env:RAILS_ENV
+    ports: 
+      - 3000:80:443
+    env_vars:
+      RAILS_ENV: production
+      RACK_ENV: production
+
+databases:
+  - postgresql
