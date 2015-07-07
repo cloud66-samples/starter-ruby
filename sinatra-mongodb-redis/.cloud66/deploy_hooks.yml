@@ -1,0 +1,21 @@
+development:
+    last_thing:
+      - source: /.cloud66/migrate.sh
+        destination: /tmp/migrate.sh
+        target: sinatra
+        execute: true
+        sudo: true
+production:
+    last_thing:
+      - source: /.cloud66/migrate.sh
+        destination: /tmp/migrate.sh
+        target: sinatra
+        execute: true
+        sudo: true
+staging:
+    last_thing:
+      - source: /.cloud66/migrate.sh
+        destination: /tmp/migrate.sh
+        target: sinatra
+        execute: true
+        sudo: true
