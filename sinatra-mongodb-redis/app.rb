@@ -3,11 +3,13 @@ require 'sinatra'
 require 'rack/parser'
 require 'active_record'
 require 'mongoid'
+require 'mongo'
 require 'pg'
 require 'rack/throttle'
 require 'dalli'
 require 'redis'
 require 'resque'
+require 'yaml'
 
 use Rack::Parser, :content_types => {
   'application/json'  => Proc.new { |body| ::MultiJson.decode body }
