@@ -53,7 +53,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: postgres_production
-  pool: 5
-  host: localhost
+  database: <%= ENV['POSTGRESQL_DATABASE'] %>
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  pool: 50
+  host: postgresql.cloud66.local
   port: 5432
