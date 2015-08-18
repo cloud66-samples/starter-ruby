@@ -15,8 +15,8 @@ services:
     git: git@github.com:cloud66-samples/starter-ruby.git
     git_branch: test_starter
     command: bundle exec rackup -E _env:RACK_ENV
-    build_command: RACK_ENV=_env:RACK_ENV bundle exec rake db:schema:load
-    deploy_command: RACK_ENV=_env:RACK_ENV bundle exec rake db:migrate
+    build_command: /bin/sh -c "RACK_ENV=_env:RACK_ENV bundle exec rake db:schema:load"
+    deploy_command: /bin/sh -c "RACK_ENV=_env:RACK_ENV bundle exec rake db:migrate"
     build_root: sinatra-mongodb-redis/
     ports:
       - container: 9292
