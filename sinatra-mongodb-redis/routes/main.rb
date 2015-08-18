@@ -2,10 +2,6 @@ class App < Sinatra::Application
   get '/' do
     #VARNISH
     headers['Cache-Control'] = 'public, max-age=300'
-    #MEMCACHE
-    color = settings.cache.fetch('color') do
-      'blue'
-    end
     #REDIS
     REDIS.set("#{Time.now}", "#{Time.now}")
     #RESQUE
