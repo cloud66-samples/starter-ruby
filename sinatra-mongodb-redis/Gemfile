@@ -9,7 +9,7 @@ gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'pg'
 gem 'rack-throttle'
-gem 'dalli'
+# gem 'dalli'
 gem 'redis' 
 gem 'resque', "1.17"
 gem 'thin'
