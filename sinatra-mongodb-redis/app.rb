@@ -3,11 +3,13 @@ require 'sinatra'
 require 'rack/parser'
 require 'active_record'
 require 'mongoid'
+require 'mongo'
 require 'pg'
 require 'rack/throttle'
-require 'dalli'
+# require 'dalli'
 require 'redis'
 require 'resque'
+require 'yaml'
 
 use Rack::Parser, :content_types => {
   'application/json'  => Proc.new { |body| ::MultiJson.decode body }
@@ -42,9 +44,9 @@ class App < Sinatra::Application
   configure :development do
     enable :logging, :dump_errors, :raise_errors
 
-    set :cache, Dalli::Client.new
+    # set :cache, Dalli::Client.new
 
-    REDIS = Redis.new(:host => ENV['REDIS_ADDRESS'], :port => 6379, :password => "")
+    REDIS = Redis.new(:host => ENV['REDIS_ADDRESS'], :port => 6379)
 
     use Rack::Throttle::Hourly,   :max => 1000, :cache => REDIS, :key_prefix => 'throttle_sinatra_app'
     Resque.redis = REDIS
@@ -59,7 +61,7 @@ class App < Sinatra::Application
 
     ENV["LOG_LEVEL"] = "DEBUG"
 
-    set :cache, Dalli::Client.new
+    # set :cache, Dalli::Client.new
 
     uri = URI.parse(ENV["REDIS_URL_INT"])
 
@@ -73,7 +75,7 @@ class App < Sinatra::Application
   configure :staging do
     enable :logging, :dump_errors, :raise_errors
 
-    set :cache, Dalli::Client.new
+    # set :cache, Dalli::Client.new
 
     uri = URI.parse(ENV["REDIS_URL_INT"])
 

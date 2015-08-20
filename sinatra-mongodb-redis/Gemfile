@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+ruby "2.1.6"
 gem 'sinatra'
 gem 'heroku'
 gem 'rack-parser'
@@ -8,10 +9,11 @@ gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'pg'
 gem 'rack-throttle'
-gem 'dalli'
-gem 'redis'
-gem 'resque'
+# gem 'dalli'
+gem 'redis' 
+gem 'resque', "1.17"
 gem 'thin'
-gem 'mongoid'
-gem 'bson'
+gem 'mongoid', "~> 2.8"
+gem 'mongo', "~> 1.0"
+gem 'bson', "~> 1.9"
 gem 'bson_ext', "~> 1.3"

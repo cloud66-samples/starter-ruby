@@ -7,12 +7,13 @@ development:
 
 production:
   adapter: 'postgresql'
-  database: database
-  host: ENV['DATABASE_URL']
-  username: username
+  database: <%= ENV['POSTGRESQL_DATABASE'] %>
+  host: postgresql.cloud66.local
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
   
 staging:
   adapter: 'postgresql'
   database: database
   host: ENV['DATABASE_URL']
-  username: username  
+  username: username

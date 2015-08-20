@@ -2,10 +2,6 @@ class App < Sinatra::Application
   get '/' do
     #VARNISH
     headers['Cache-Control'] = 'public, max-age=300'
-    #MEMCACHE
-    color = settings.cache.fetch('color') do
-      'blue'
-    end
     #REDIS
     REDIS.set("#{Time.now}", "#{Time.now}")
     #RESQUE
@@ -22,7 +18,7 @@ class App < Sinatra::Application
 
     "Successfully added #{u.first_name} to MongoDB<br><br>
     Successfully added id: #{a.id || a.errors} to PostgreSQL <br><br>
-    Hello from #{color} Sinatra on Heroku! #{ENV['RACK_ENV']}<br><br>
+    Hello from Sinatra on Heroku! #{ENV['RACK_ENV']}<br><br>
     Rendered at #{Time.now}<br><br>
     #{REDIS.keys("throttle*").map{|key| [key, REDIS.get(key)]}}<br><br>
     #{REDIS.keys("*")}<br><br>
