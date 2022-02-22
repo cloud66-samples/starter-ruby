@@ -4,6 +4,9 @@ development:
             extra_packages: 
                 - atop
                 - chrony
+            configuration:
+                ruby_version: 2.1.5
+                node_version: "10"
                 
 staging:
     rails: 
@@ -11,6 +14,9 @@ staging:
             extra_packages: 
                 - atop
                 - chrony
+            configuration:
+                ruby_version: 2.1.5
+                node_version: "10"
                 
 production:
     rails: 
@@ -20,3 +26,4 @@ production:
                 - chrony                
         configuration:
             ruby_version: 2.1.5
+            node_version: "10"
